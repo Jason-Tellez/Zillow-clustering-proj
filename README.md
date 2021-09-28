@@ -142,7 +142,7 @@ tax_rate                |*New column*                |Tax rate of unit (taxvalue
 ### Conclusions
 - Draw conclusions from previous stages
 - Determine whether any of the models are useful in finding drivers of error
-- Models used: OLS, Lars+Lasso, Polynomial Regressor, K-Nearest Regressor
+- Models used: OLS, Lars+Lasso, Polynomial Regressor, K-Neighbor Regressor
 - Features used:
     - bed
     - quality_id
@@ -156,14 +156,14 @@ tax_rate                |*New column*                |Tax rate of unit (taxvalue
 - All models performed inadequetly
 - All models except Lars + Lasso performed better than the baseline
     - Lars + Lasso performed almost as well as baseline
-- The best performance came from K-Nearest Regressor
+- The best performance came from K-Neighbor Regressor
 - Hyperparameters used:
     - n_neighbors=45
     - weights='uniform'
     - algorithm='kd_tree'
     - leaf_size=20
 - Test metrics:
-    |Metric|K-Nearest Regressor| Baseline(Mean)|
+    |Metric|K-Neighbor Regressor| Baseline(Mean)|
     |---------|----------|---------|
     |RMSE|  0.15953| 0.16169|
     |R-Squared| 0.02943| 0.00024|
