@@ -5,24 +5,26 @@ The goal of this report is to find the main drivers of error between Zestimates 
 
 ## Table of contents
 
-- [Project Title](#project-title)
 - [Table of contents](#table-of-contents)
 - [Project Summary](#project-summary)
 - [Executive Summary](#executive-summary)
 - [Dictionary](#dictionary)
-- [Pipeline](#usage)
+- [Pipeline](#pipeline)
+
     -[Acquire](#acquire)
+    
     -[Prepare](#prepare)
+    
     -[Explore](#explore)
+    
     -[Model](#model)
+    
     -[Evaluate](#evaluate)
+    
     -[Conclusions](#conclusions)
     
-- [Contribute](#contribute)
-    - [Sponsor](#sponsor)
-    - [Adding new features or fixing bugs](#adding-new-features-or-fixing-bugs)
-- [License](#license)
-- [Footer](#footer)
+- [Recreate these results](#recreate-these-results)
+
 
 ## Project Summary
 [(Back to top)](#drivers-of-zestimate-error)
@@ -127,6 +129,8 @@ tax_rate                |*New column*                |Tax rate of unit (taxvalue
 
 
 # Recreate these results
+[(Back to top)](#drivers-of-zestimate-error)
+
 1. Download this [README](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/README.md)
 2. Download the [acquire](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/acquire.py), [prepare](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/prepare.py), and [model](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/model.py) modules
 3. Acquire credentials (env) to database
