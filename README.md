@@ -128,4 +128,6 @@ tax_rate                |*New column*                |Tax rate of unit (taxvalue
 
 # Recreate these results
 1. Download this [README](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/README.md)
-2. Download the [acquire](), [prepare](), and [model]() modules
+2. Download the [acquire](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/acquire.py), [prepare](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/prepare.py), and [model](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/model.py) modules
+3. Acquire credentials (env) to database
+4. Download [the final jupyter notebook](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/zillow_clustering_report.ipynb) and run all cells
