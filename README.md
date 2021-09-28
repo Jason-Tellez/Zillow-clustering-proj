@@ -55,6 +55,21 @@ The goal of this report is to find the main drivers of error between Zestimates 
 ## Data Dictionary
 [(Back to top)](#table-of-contents)
 
+**Types of units I aqcuired (propertylandusedesc)**
+- 261: Single Family Residential
+- 262: Rural Residence
+- 263: Mobile Home
+- 264: Townhouse
+- 265: Cluster home
+- 266: Condominium
+- 268: Row House
+- 271: Timeshare
+- 273: Bungalow
+- 274: Zero Lot Line
+- 275: Manufactured, Modular, Prefabricated Home
+- 276: Patio Home
+- 279: Inferred Single Family Residential
+
 key|old_key|description
 |:------------------|:------------------------|:-------------|                   
 age                     |yearbuilt                   |Age of property|
