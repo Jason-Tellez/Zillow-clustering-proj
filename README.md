@@ -142,8 +142,31 @@ tax_rate                |*New column*                |Tax rate of unit (taxvalue
 ### Conclusions
 - Draw conclusions from previous stages
 - Determine whether any of the models are useful in finding drivers of error
-- Be sad that your model is bad and feel bad
-
+- Models used: OLS, Lars+Lasso, Polynomial Regressor, K-Nearest Regressor
+- Features used:
+    - bed
+    - quality_id
+    - bath
+    - regionidzip
+    - lot_sqft
+    - taxamount
+    - taxvalue
+    - transaction_month
+    - cluster2
+- All models performed inadequetly
+- All models except Lars + Lasso performed better than the baseline
+    - Lars + Lasso performed almost as well as baseline
+- The best performance came from K-Nearest Regressor
+- Hyperparameters used:
+    - n_neighbors=45
+    - weights='uniform'
+    - algorithm='kd_tree'
+    - leaf_size=20
+- Test metrics:
+    |Metric|K-Nearest Regressor| Baseline(Mean)|
+    |---------|----------|---------|
+    |RMSE|  0.15953| 0.16169|
+    |R-Squared| 0.02943| 0.00024|
 
 # Recreate these results
 [(Back to top)](#drivers-of-zestimate-error)
