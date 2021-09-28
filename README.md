@@ -1,4 +1,6 @@
 # Drivers of Zestimate Error
+By: Jason Tellez
+Date: September 28, 2021
 
 The goal of this report is to find the main drivers of error between Zestimates and prices of the listed properties. Specifically, we will be looking at single-unit/single-family properties which had transactions in the year 2017. From here, we proceed through the usual stages of the DS pipeline and hopefully find the what drives the error. I will incorporate clustering in my analysis and modeling to possibly better predict the Zestimate error.
 
