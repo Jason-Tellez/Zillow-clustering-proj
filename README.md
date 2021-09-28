@@ -1,55 +1,15 @@
-<!-- Add banner here -->
+# Drivers of Zestimate Error
 
-# Project Title
-
-<!-- Add buttons here -->
-
-<!-- Describe your project in brief -->
-
-<!-- The project title should be self explanotory and try not to make it a mouthful. (Although exceptions exist- **awesome-readme-writing-guide-for-open-source-projects** - would have been a cool name)
-
-Add a cover/banner image for your README. **Why?** Because it easily **grabs people's attention** and it **looks cool**(*duh!obviously!*).
-
-The best dimensions for the banner is **1280x650px**. You could also use this for social preview of your repo.
-
-I personally use [**Canva**](https://www.canva.com/) for creating the banner images. All the basic stuff is **free**(*you won't need the pro version in most cases*).
-
-There are endless badges that you could use in your projects. And they do depend on the project. Some of the ones that I commonly use in every projects are given below. 
-
-I use [**Shields IO**](https://shields.io/) for making badges. It is a simple and easy to use tool that you can use for almost all your badge cravings. -->
-
-<!-- Some badges that you could use -->
-
-<!-- ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)
-: This badge shows the version of the current release.
-
-![GitHub last commit](https://img.shields.io/github/last-commit/navendu-pottekkat/awesome-readme)
-: I think it is self-explanatory. This gives people an idea about how the project is being maintained.
-
-![GitHub issues](https://img.shields.io/github/issues-raw/navendu-pottekkat/awesome-readme)
-: This is a dynamic badge from [**Shields IO**](https://shields.io/) that tracks issues in your project and gets updated automatically. It gives the user an idea about the issues and they can just click the badge to view the issues.
-
-![GitHub pull requests](https://img.shields.io/github/issues-pr/navendu-pottekkat/awesome-readme)
-: This is also a dynamic badge that tracks pull requests. This notifies the maintainers of the project when a new pull request comes.
-
-![GitHub All Releases](https://img.shields.io/github/downloads/navendu-pottekkat/awesome-readme/total): If you are not like me and your project gets a lot of downloads(*I envy you*) then you should have a badge that shows the number of downloads! This lets others know how **Awesome** your project is and is worth contributing to.
-
-![GitHub](https://img.shields.io/github/license/navendu-pottekkat/awesome-readme)
-: This shows what kind of open-source license your project uses. This is good idea as it lets people know how they can use your project for themselves.
-
-![Tweet](https://img.shields.io/twitter/url?style=flat-square&logo=twitter&url=https%3A%2F%2Fnavendu.me%2Fnsfw-filter%2Findex.html): This is not essential but it is a cool way to let others know about your project! Clicking this button automatically opens twitter and writes a tweet about your project and link to it. All the user has to do is to click tweet. Isn't that neat? -->
+The goal of this report is to find the main drivers of error between Zestimates and prices of the listed properties. Specifically, we will be looking at single-unit/single-family properties which had transactions in the year 2017. From here, we proceed through the usual stages of the DS pipeline and hopefully find the what drives the error. I will incorporate clustering in my analysis and modeling to possibly better predict the Zestimate error.
 
 
-# Table of contents
-
-<!-- After you have introduced your project, it is a good idea to add a **Table of contents** or **TOC** as **cool** people say it. This would make it easier for people to navigate through your README and find exactly what they are looking for.
-
-Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
+## Table of contents
 
 - [Project Title](#project-title)
 - [Table of contents](#table-of-contents)
 - [Project Summary](#project-summary)
 - [Executive Summary](#executive-summary)
+- [Dictionary](#dictionary)
 - [Pipeline](#usage)
     -[Acquire](#acquire)
     -[Prepare](#prepare)
@@ -64,106 +24,108 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 - [License](#license)
 - [Footer](#footer)
 
-# Project Summary
+## Project Summary
+[(Back to top)](#drivers-of-zestimate-error)
+
+#### Goal
+The goal of this report is to find the main drivers of error between Zestimates and prices of the listed properties. Specifically, we will be looking at single-unit/single-family properties which had transactions in the year 2017. From here, we proceed through the usual stages of the DS pipeline and hopefully find the what drives the error. I will incorporate clustering in my analysis and modeling to possibly better predict the Zestimate error.
+
+#### Deliverables
+1. A final notebook. This notebook will be presented and should contains markdown documentation and cleaned up code.
+2. A README that explains what the project is, how to reproduce the work, and any notes from project planning.
+3. A Python module or modules that automate the data acquisistion and preparation process. These modules will be imported and used in the final notebook.
+
+
+## Executive Summary 
+[(Back to top)](#table-of-contents)
+### Conclusions & Next Steps
+- I found that when properties are separated by bedroom count, specifically those with more than 3 bedrooms versus those the 3 or less bedrooms, the average log error is significantly different between the two subgroups.
+- I found that there was no linear relationship between tax value of property and logerror.
+- Using square feet and age of property, I found that when I created 5 clusters, the mean logerror was equal across all clusters
+- Using latitude, longitude and heating/airconditioning type, I found that when i created 6 clusters, the mean logerror was different across all clusters.
+- Using bathroom count, tax rate, and county, I found that when i created 5 clusters, the mean logerror was equal across all 6 clusters.
+- I found that my models are not adequete predictors of logerror.
+- If i had more time, I would like to investigate any non-linear relationships the features might have. Most notably, the relationship between tax value and log error.
+
+
+## Data Dictionary
 [(Back to top)](#table-of-contents)
 
-The goal of this report is to find the main drivers of error between Zestimates and prices of the listed properties. Specifically, we will be looking at single-unit/single-family properties which had transactions in the year 2017. From here, we proceed through the usual stages of the DS pipeline and hopefully find the what drives the error.
-
-<!-- *You might have noticed the **Back to top** button(if not, please notice, it's right there!). This is a good idea because it makes your README **easy to navigate.*** 
-
-The first one should be how to install(how to generally use your project or set-up for editing in their machine).
-
-This should give the users a concrete idea with instructions on how they can use your project repo with all the steps.
-
-Following this steps, **they should be able to run this in their device.**
-
-A method I use is after completing the README, I go through the instructions from scratch and check if it is working. -->
-
-<!-- Here is a sample instruction:
-
-To use this project, first clone the repo on your device using the command below:
-
-```git init```
-
-```git clone https://github.com/navendu-pottekkat/nsfw-filter.git``` -->
-
-# DS Pipeline
+key|old_key|description
+|:------------------|:------------------------|:-------------|                   
+age                     |yearbuilt                   |Age of property|
+fips                    |fips                        |Federal Information Processing Standard code |
+sqft                    |calculatedfinishedsquarefeet|Calculated total finished living area of the home |
+lot_sqft                |lotsizesquarefeet           |Area of the lot in square feet |
+quality_id              |buildingqualitytypeid       |Quality of build of property |
+bath                    |bathroomcnt                 |Number of bathrooms in home including fractional bathrooms |
+bed                     |bedroomcnt                  |Number of bedrooms in home |
+taxamount               |taxamount                   |The total property tax assessed for that assessment year |
+taxvalue                |taxvaluedollarcnt           |The total tax assessed value of the parcel |
+living_sqft             |finishedsquarefeet12        |Area of livable sqft of unit  |
+full_bath               |fullbathcnt                 |Number of full baths |
+latitude                |latitude                    |Coordinate of unit |
+longitude               |longitude                   |Coordinate of unit |
+landusecode             |propertycountylandusecode   |Code that indicates zone which unit is located |
+zone                    |propertyzoningdesc          |Description of zone which property is located |
+regionidcity            |regionidcity                |ID of city which property is located |
+regionidcounty          |regionidcounty              |ID of county which property is located |
+regionidzip             |regionidzip                 |ID of zipcode which property is located |
+structure_tax           |structuretaxvaluedollarcnt  |Tax value of structure which unit is located in |
+landtax                 |landtaxvaluedollarcnt       |Tax value of parcel which unit is located |
+logerror                |logerror                    |Error of Zestimate vs actual price of unit |
+heating                 |heatingorsystemdesc         |Type of heating or cooling system the unit has |
+landusedesc             |propertylandusedesc         |Type of unit |
+transaction_month       |*New column*                |Month where the transaction of unit took place |
+tax_rate                |*New column*                |Tax rate of unit (taxvalue / taxamount) |
+ 
+ 
+## Pipeline
 [(Back to top)](#table-of-contents)
-
-<!-- This is optional and it is used to give the user info on how to use the project after installation. This could be added in the Installation section also. -->
-
-# Development
-[(Back to top)](#table-of-contents)
-
-<!-- This is the place where you give instructions to developers on how to modify the code.
-
-You could give **instructions in depth** of **how the code works** and how everything is put together.
-
-You could also give specific instructions to how they can setup their development environment.
-
-Ideally, you should keep the README simple. If you need to add more complex explanations, use a wiki. Check out [this wiki](https://github.com/navendu-pottekkat/nsfw-filter/wiki) for inspiration. -->
 
 ### Plan
+- Build the README and [Trello board](https://trello.com/b/tuXcQdYs/zillow-clustering-project)
+- Gather previously used data from regression project to speed up process
+- Plan stages of the pipeline
+- Create hypotheses to test
 
 ### Acquire
+- Create SQL qeury that gathers relevant data from SQL database
+- Use code to convert data to CSV file and to pandas dataframe
+- Understand the data to prepare for the next phase
 
 ### Prepare
+- Adress null values
+    - Drop columns and rowsmissing too much data
+- Impute remaining null values with best method (median, mode) 
+- Convert datatypes
+- Create new columns
+- Rename columns
+- Drop outliers
+- Split the data
+- Scale the data (MinMax)
 
 ### Explore
+- Test hypotheses
+    1. Create null and alternative hypothses
+    2. Visualize
+    3. Create clusters (if necessary)
+    4. Test distribution (if necessary)
+    5. Use statistical tests to find answers to original hypothesis
+-  At least 3 combinations of features for clustering should be tried
 
 ### Model
-
-### Evaluate
+- Create baseline model to compare future models
+- At least 4 different models are created and their performance is compared
+- Calculate metrics for each model aid comparison
+- Choose best model to evaluate with test dataset (Out-of-sample)
 
 ### Conclusions
+- Draw conclusions from previous stages
+- Determine whether any of the models are useful in finding drivers of error
+- Be sad that your model is bad and feel bad
 
-# Contribute
-[(Back to top)](#table-of-contents)
 
-<!-- This is where you can let people know how they can **contribute** to your project. Some of the ways are given below.
-
-Also this shows how you can add subsections within a section. -->
-
-### Sponsor
-[(Back to top)](#table-of-contents)
-
-<!-- Your project is gaining traction and it is being used by thousands of people(***with this README there will be even more***). Now it would be a good time to look for people or organisations to sponsor your project. This could be because you are not generating any revenue from your project and you require money for keeping the project alive.
-
-You could add how people can sponsor your project in this section. Add your patreon or GitHub sponsor link here for easy access.
-
-A good idea is to also display the sponsors with their organisation logos or badges to show them your love!(*Someday I will get a sponsor and I can show my love*) -->
-
-### Adding new features or fixing bugs
-[(Back to top)](#table-of-contents)
-
-<!-- This is to give people an idea how they can raise issues or feature requests in your projects. 
-
-You could also give guidelines for submitting and issue or a pull request to your project.
-
-Personally and by standard, you should use a [issue template](https://github.com/navendu-pottekkat/nsfw-filter/blob/master/ISSUE_TEMPLATE.md) and a [pull request template](https://github.com/navendu-pottekkat/nsfw-filter/blob/master/PULL_REQ_TEMPLATE.md)(click for examples) so that when a user opens a new issue they could easily format it as per your project guidelines.
-
-You could also add contact details for people to get in touch with you regarding your project. -->
-
-# License
-[(Back to top)](#table-of-contents)
-
-<!-- Adding the license to README is a good practice so that people can easily refer to it.
-
-Make sure you have added a LICENSE file in your project folder. **Shortcut:** Click add new file in your root of your repo in GitHub > Set file name to LICENSE > GitHub shows LICENSE templates > Choose the one that best suits your project!
-
-I personally add the name of the license and provide a link to it like below. -->
-
-[GNU General Public License version 3](https://opensource.org/licenses/GPL-3.0)
-
-# Footer
-[(Back to top)](#table-of-contents)
-
-<!-- Let's also add a footer because I love footers and also you **can** use this to convey important info.
-
-Let's make it an image because by now you have realised that multimedia in images == cool(*please notice the subtle programming joke). -->
-
-Leave a star in GitHub, give a clap in Medium and share this guide if you found this helpful.
-
-<!-- Add the footer here -->
-
-<!-- ![Footer](https://github.com/navendu-pottekkat/awesome-readme/blob/master/fooooooter.png) -->
+# Recreate these results
+1. Download this [README](https://github.com/Jason-Tellez/Zillow-clustering-proj/blob/main/README.md)
+2. Download the [acquire](), [prepare](), and [model]() modules
