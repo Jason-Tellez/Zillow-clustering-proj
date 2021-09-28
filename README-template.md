@@ -39,6 +39,15 @@ I use [**Shields IO**](https://shields.io/) for making badges. It is a simple an
 
 ![Tweet](https://img.shields.io/twitter/url?style=flat-square&logo=twitter&url=https%3A%2F%2Fnavendu.me%2Fnsfw-filter%2Findex.html): This is not essential but it is a cool way to let others know about your project! Clicking this button automatically opens twitter and writes a tweet about your project and link to it. All the user has to do is to click tweet. Isn't that neat? -->
 
+# Demo-Preview
+
+<!-- Add a demo for your project -->
+
+<!-- After you have written about your project, it is a good idea to have a demo/preview(**video/gif/screenshots** are good options) of your project so that people can know what to expect in your project. You could also add the demo in the previous section with the product description.
+
+Here is a random GIF as a placeholder.
+
+![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif) -->
 
 # Table of contents
 
@@ -47,27 +56,19 @@ I use [**Shields IO**](https://shields.io/) for making badges. It is a simple an
 Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
 
 - [Project Title](#project-title)
+- [Demo-Preview](#demo-preview)
 - [Table of contents](#table-of-contents)
-- [Project Summary](#project-summary)
-- [Executive Summary](#executive-summary)
-- [Pipeline](#usage)
-    -[Acquire](#acquire)
-    -[Prepare](#prepare)
-    -[Explore](#explore)
-    -[Model](#model)
-    -[Evaluate](#evaluate)
-    -[Conclusions](#conclusions)
-    
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
 - [Contribute](#contribute)
     - [Sponsor](#sponsor)
     - [Adding new features or fixing bugs](#adding-new-features-or-fixing-bugs)
 - [License](#license)
 - [Footer](#footer)
 
-# Project Summary
+# Installation
 [(Back to top)](#table-of-contents)
-
-The goal of this report is to find the main drivers of error between Zestimates and prices of the listed properties. Specifically, we will be looking at single-unit/single-family properties which had transactions in the year 2017. From here, we proceed through the usual stages of the DS pipeline and hopefully find the what drives the error.
 
 <!-- *You might have noticed the **Back to top** button(if not, please notice, it's right there!). This is a good idea because it makes your README **easy to navigate.*** 
 
@@ -87,7 +88,7 @@ To use this project, first clone the repo on your device using the command below
 
 ```git clone https://github.com/navendu-pottekkat/nsfw-filter.git``` -->
 
-# DS Pipeline
+# Usage
 [(Back to top)](#table-of-contents)
 
 <!-- This is optional and it is used to give the user info on how to use the project after installation. This could be added in the Installation section also. -->
@@ -102,20 +103,6 @@ You could give **instructions in depth** of **how the code works** and how every
 You could also give specific instructions to how they can setup their development environment.
 
 Ideally, you should keep the README simple. If you need to add more complex explanations, use a wiki. Check out [this wiki](https://github.com/navendu-pottekkat/nsfw-filter/wiki) for inspiration. -->
-
-### Plan
-
-### Acquire
-
-### Prepare
-
-### Explore
-
-### Model
-
-### Evaluate
-
-### Conclusions
 
 # Contribute
 [(Back to top)](#table-of-contents)
